@@ -1,0 +1,43 @@
+# Project: Coche
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Coche.o Puerta.o Ventana.o Rueda.o Motor.o
+LINKOBJ  = main.o Coche.o Puerta.o Ventana.o Rueda.o Motor.o
+LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
+INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Coche.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Coche.o: Coche.cpp
+	$(CPP) -c Coche.cpp -o Coche.o $(CXXFLAGS)
+
+Puerta.o: Puerta.cpp
+	$(CPP) -c Puerta.cpp -o Puerta.o $(CXXFLAGS)
+
+Ventana.o: Ventana.cpp
+	$(CPP) -c Ventana.cpp -o Ventana.o $(CXXFLAGS)
+
+Rueda.o: Rueda.cpp
+	$(CPP) -c Rueda.cpp -o Rueda.o $(CXXFLAGS)
+
+Motor.o: Motor.cpp
+	$(CPP) -c Motor.cpp -o Motor.o $(CXXFLAGS)
